@@ -1,0 +1,5 @@
+{
+    "code-runner.executorMap": {
+        "matlab": "cd $dir && /Applications/MATLAB_R2025a.app/bin/matlab -batch \"run('$fileNameWithoutExt')\""
+    }
+}

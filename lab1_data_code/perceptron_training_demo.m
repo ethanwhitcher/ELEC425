@@ -16,7 +16,7 @@ plot(X(31:60, 1), X(31:60, 2), 'b.')
 %rng(425)
 rng(225)
 % training 
-[w, b, h_w, h_b, ind] = perceptron(X, y, 0.005);
+[w, b, h_w, h_b, ind] = perceptron_incomplete(X, y, 0.005);
 
 
 % visualization

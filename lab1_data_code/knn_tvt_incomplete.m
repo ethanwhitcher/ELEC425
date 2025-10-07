@@ -3,8 +3,7 @@ clear % clear memory
 load('a1digits.mat');
 
 
-%% split training set to 200 validation set and 500 training set, so do the label
-disp('Loading and Reformatting Data')
+%% split training set to 200 validation set and 500 training set, so do the label disp('Loading and Reformatting Data')
 digits_val = digits_train(:, 501:700, :);
 digits_train = digits_train(:, 1:500, :);
 
@@ -51,8 +50,8 @@ for k = ks
     % of the function "knn")
     % and save the returned values to the variable "pred" 
         
-    < The code is incomplete; add one line of code here! >
-    
+    pred = knn(val_digits, train_digits, train_labels, k, 'euclidean')
+
     toc 
     
     % calculate and show accuarcy for this round of validation
@@ -90,16 +89,16 @@ fprintf('Best k is : %d.\n', best_k);
 % You should return the "predicted label" (the first returned parameter
 % of function knn)
 % and save that to variable "pred" 
-< The code is incomplete; add one line of code here! >
+pred = knn(test_digits, train_digits, train_labels, best_k, 'euclidean');
 
 % ******** step 2. ********
 % once you get your prediction, please add one line of code to calculate 
 % the accuracy
-< The code is incomplete, add one line of code here! >
+acc = sum(pred == test_labels)/length(test_labels);
 
 % ******** step 3. ******** 
 % Display the following content in the Command Window, 
 % 'The final accuracy on test set is yyy %, which is obtained with k = xxx, where k is selected using a validation set.'
 % xxx should be replaced by your best k, and yyy is the final accuracy on 
 % the test set achieve by using your best k
-<The code is incomplete; add one line of code here! >
+fprintf('The final accuracy on test set is %.2f %%, which is obtained with k = %d, where k is selected using a validation set.\n', acc*100, best_k);

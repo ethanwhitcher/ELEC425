@@ -1,4 +1,4 @@
-function [w, b, h_w, h_b, upd_ind] = perceptron(X, t, eta)
+function [w, b, h_w, h_b, upd_ind] = perceptron_incomplete(X, t, eta)
 % input:
 % X: feature matrix
 % t: true labels
@@ -30,12 +30,18 @@ while (error > 0)
         x = X(n, :)';
 
         % Using the current w, b to predict the label for x
-        <The code is incomplete; add some code here!>
-
+        pred = sign(w' * x + b);
+        
         % If a misclassified point is found, update weights and bias
         % also, update the number of errors (i.e., update the variable "error")
-        <The code is incomplete; add some code here!>
-      
+        if pred ~= t(n)
+            % update weights/bias
+            w = w + eta * t(n) * x;
+            b = b + eta * t(n);
+
+            error = error + 1;
+        end      
+
         % store current parameters for later visualization
         count = count + 1;
         h_w(:, count) = w;
